@@ -1,0 +1,1 @@
+from FortAttack_gym.envs.open_fortattack import OpenFortAttackGlobalEnv

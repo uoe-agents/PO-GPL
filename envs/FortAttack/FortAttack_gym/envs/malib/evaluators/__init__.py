@@ -1,0 +1,1 @@
+from FortAttack_gym.envs.malib.evaluators.multiagent_evaluator import MAEvaluator
