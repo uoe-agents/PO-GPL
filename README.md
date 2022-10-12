@@ -1,7 +1,7 @@
 # GPL
 
-This is the code for our paper "A General Learning Framework for Open Ad Hoc Teamwork
-Using Graph-based Policy Learning". Inside you will find all the code and tutorials on how to run things.
+This is the code for our paper "[A General Learning Framework for Open Ad Hoc Teamwork
+Using Graph-based Policy Learning](https://arxiv.org/abs/2210.05448)". Inside you will find all the code and tutorials on how to run things.
 
 
 # How to install and run   
@@ -26,7 +26,7 @@ In case you use these codes in your work, please also cite our paper using the f
     title={A General Learning Framework for Open Ad Hoc Teamwork Using Graph-based Policy Learning},
     author={Arrasy Rahman and Ignacio Carlucho and Niklas Höpner and Stefano V. Albrecht},
     year={2022},
-    eprint={xxx.xxxx},
+    eprint={2210.05448},
     archivePrefix={arXiv}
  }",
 ```
