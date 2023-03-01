@@ -85,12 +85,16 @@ def plot_me(algorithm_name_list, legend, title, ylabel, fig_name, buff_to_load, 
 
 
 
-log_name = ["VAE-GPL", "AE-GPL",  "GPL-Q", "GLANCE-10", "GLANCE-5", "GLANCE-1" ] 
-log_dir = ["liam_s", "liam", "gpl" , "glance_10", "glance_5", "glance_1" ] 
+# Select the algorithms you want to plot this way: 
+# Define the labels
+legend = ["VAE-GPL", "AE-GPL", "GPL-Q", "PF-GPL-10"] 
+# and the folder name
+algorithm_name = ["VAE", "AE", "GPL" , "PF-GPL-10" ] 
 
 
-legend = ["VAE-GPL","AE-GPL",  "GPL-Q", "PF-GPL-20", "PF-GPL-10", "PF-GPL-5", "PF-GPL-1" ] 
-algorithm_name = ["liam_s", "liam", "GPL", "glance_20", "glance_10", "glance_5", "glance_1" ] 
+# In the paper we used: 
+# legend = ["VAE-GPL","AE-GPL",  "GPL-Q", "PF-GPL-20", "PF-GPL-10", "PF-GPL-5", "PF-GPL-1" ] 
+# algorithm_name = ["VAE", "AE", "GPL", "PF-GPL-20", "PF-GPL-10", "PF-GPL-5", "PF-GPL-1"] 
 
 
 title = "Action Reconstruction in " + args.env_name
@@ -100,8 +104,16 @@ buff_to_load = 'buff_action_reconstruction_log_prob_'
 plot_me(algorithm_name, legend, title, ylabel, fig_name, buff_to_load, log_inversion = False)
 
 
-legend = ["VAE-GPL","AE-GPL" , "", "PF-GPL-20", "PF-GPL-10", "PF-GPL-5", "PF-GPL-1", ] 
-algorithm_name = ["liam_s", "liam" , "NA", "glance_20", "glance_10", "glance_5", "glance_1" ] 
+# GPL-Q only does action reconstruction, so we mask it for state reconstruction and Squarred error.  
+# This way we are able to mantain the same colors for all methods. 
+try: 
+	index = legend.index("GPL-Q")
+	legend[index] =  "" 
+	algorithm_name[index] = "NA" 
+except ValueError:
+	print("GPL-Q not on list this might cause errors")
+
+
 
 title = "State Reconstruction in " + args.env_name
 ylabel = "log error"
